@@ -1,3 +1,10 @@
+'''
+   Problem 111: https://projecteuler.net/problem=111
+
+   Solved: 2019-03-17
+'''
+
+
 import itertools
 from PrimeTools import PrimeTools
 

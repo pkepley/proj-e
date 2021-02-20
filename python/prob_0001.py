@@ -1,6 +1,8 @@
 ''' Problem 1:
     calculate the sum of all integers in [1,1000)
     which satisfy 3|x or 5|x
+
+   Solved: 2014-01-28
 '''
 
 

@@ -4,6 +4,7 @@
    find the greatest product of four adjacent entries, where
    adjacency means in a row, in a column, or diagonally adjacent.
 
+   Solved: 2014-01-29
 '''
 
 from operator import mul

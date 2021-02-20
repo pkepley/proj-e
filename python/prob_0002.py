@@ -3,6 +3,9 @@
     that  satisfy
         1) F_n < 4 * 10^6
         2) F_n is even
+
+
+   Solved: 2014-01-28
 '''
 
 
