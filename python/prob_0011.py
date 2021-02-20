@@ -1,6 +1,6 @@
 '''
    Problem 11:
-   Given a 20x20 grid (saved in ./data/prob_0011.txt) of numbers,
+   Given a 20x20 grid (saved in ../data/prob_0011.txt) of numbers,
    find the greatest product of four adjacent entries, where
    adjacency means in a row, in a column, or diagonally adjacent.
 
