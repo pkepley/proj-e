@@ -13,7 +13,7 @@ def kbits(n, k):
     ---------------------------------------------------------------------
     Generate list of all n-bit bit-patterns with exactly k bits set to 1.
     '''
-    # https://stackoverflow.com/questions/1851134/generate-all-binary-strings-of-length-n-with-k-bits-set
+    # https://stackoverflow.com/q/1851134/3677367
     result = []
     for bits in itertools.combinations(range(n), k):
         s = [0] * n
@@ -155,4 +155,5 @@ if __name__ == "__main__":
 
     prob_111_soln = solve_prob_111(n)
 
+    print("")
     print("Solution to Prob 111: {}".format(prob_111_soln))
