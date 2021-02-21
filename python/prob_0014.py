@@ -31,15 +31,21 @@ def collatz_sequence_length(n, collatz_memo_dict={1: 1}):
     You can optionally provide a lookup dictionary (collatz_memo_dict)
     with pre-computed sequence lengths for memoization.
     '''
-    orbit = [n]
+    collatz_sequence = [n]
     next_term = next_collatz(n)
 
+    # compute the Collatz sequence beginning from n until we
+    # reach a term whose length is known
     while next_term not in collatz_memo_dict:
-        orbit.append(next_term)
+        collatz_sequence.append(next_term)
         next_term = next_collatz(next_term)
 
+    # get the sequence length for the next term
     sequence_length = collatz_memo_dict[next_term]
-    for m in reversed(orbit):
+
+    # use the known length to compute the sequence length for each
+    # prior term
+    for m in reversed(collatz_sequence):
         sequence_length += 1
         collatz_memo_dict[m] = sequence_length
 
@@ -57,14 +63,16 @@ def longest_collatz_sequence(max_n, collatz_memo_dict={1: 1}):
     You can optionally provide a lookup dictionary (collatz_memo_dict)
     with pre-computed sequence lengths for memoization.
     '''
-    collatz_length_list = [0, 1]
 
-    for n in range(2, max_n):
+    collatz_length_list = []
+
+    for n in range(1, max_n):
         collatz_length_list.append(
             collatz_sequence_length(n, collatz_memo_dict)
         )
 
-    return collatz_length_list.index(max(collatz_length_list))
+    # index is one less than the integer it represents, so add 1 (:
+    return collatz_length_list.index(max(collatz_length_list)) + 1
 
 
 def solve_prob(n=10**6):
