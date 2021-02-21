@@ -73,7 +73,7 @@ def M(n, d, pt=_pt_):
                 if m_test_digits[0] != 0:
                     m_test = int_from_digits(m_test_digits)
 
-                    if pt.isPrime(m_test):
+                    if pt.is_prime(m_test):
                         return k
 
 
@@ -119,7 +119,7 @@ def N_set(n, d, pt=_pt_):
                 m_test = int_from_digits(m_test_digits)
 
                 # if prime, add to list:
-                if pt.isPrime(m_test):
+                if pt.is_prime(m_test):
                     N_set.append(m_test)
 
     return N_set
@@ -145,7 +145,7 @@ def S(n, d, pt=_pt_):
     return sum(N_set(n, d, pt))
 
 
-def solve_prob_111(n, pt=_pt_):
+def solve_prob(n, pt=_pt_):
     S_set = []
     for d in range(10):
         S_set.append(S(n, d))
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     for d in range(10):
         print("{0}\t{1}\t{2}\t{3}".format(d, M(n, d), N(n, d), S(n, d)))
 
-    prob_111_soln = solve_prob_111(n)
+    soln = solve_prob(n)
 
     print("")
-    print("Solution to Prob 111: {}".format(prob_111_soln))
+    print("Solution to Prob 111: {}".format(soln))

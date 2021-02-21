@@ -24,7 +24,7 @@ def sum_primes_below(n, pt=None):
     else:
         pt.extend(n)
 
-    return sum([p for p in pt.primeList if p < n])
+    return sum([p for p in pt.prime_list if p < n])
 
 
 def solve_prob(n, pt=None):

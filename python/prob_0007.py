@@ -18,11 +18,11 @@ def find_nth_prime(n, pt=None):
         pt = PrimeTools(m)
 
     # keep extending prime list until we have n primes
-    while len(pt.primeList) < n:
+    while len(pt.prime_list) < n:
         m = 2 * m
         pt.extend(m)
 
-    return pt.primeList[n-1]
+    return pt.prime_list[n-1]
 
 
 def solve_prob(n=10001):
