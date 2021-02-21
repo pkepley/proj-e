@@ -72,7 +72,7 @@ class PrimeTools:
                     return False
             return True
 
-    def prime_divisors(self, m):
+    def factorize(self, m):
         m = abs(m)
         prime_divisor_list = []
 
@@ -99,7 +99,7 @@ class PrimeTools:
 
     def n_divisors(self, m):
         m = abs(m)
-        prime_divisors = self.prime_divisors(m)
+        prime_divisors = self.factorize(m)
 
         return reduce(mul, [p_exp+1 for (p, p_exp) in prime_divisors], 1)
 
@@ -142,4 +142,12 @@ if __name__ == "__main__":
     n_div_m_obs = pt.n_divisors(11232134)
     assert(n_div_m_exp == n_div_m_obs)
     passes_test(n_div_m_exp, n_div_m_obs)
-    
+
+    # Test 4
+    # factorize something 
+    m = 2**3 * 3 * 5 * 7**2
+    m_factors_exp = [(2, 3), (3, 1), (5, 1), (7, 2)]
+    m_factors_obs = pt.factorize(m)
+    assert(n_div_m_exp == n_div_m_obs)
+    passes_test(m_factors_exp, m_factors_obs)
+
