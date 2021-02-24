@@ -14,14 +14,14 @@ import Data.List (tails)
 -- Modified this: https://stackoverflow.com/a/24410352
 rollingProd n xs
     = map product                          -- multiplicative roll-up
-    . zipWith (flip const) (drop (n-1) xs) -- drop the last n-1 which are too short (??)
+    . zipWith (flip const) (drop (n-1) xs) -- drop the last n-1
     . map (take n)                         -- truncate long windows
     . tails                                -- make arbitrarily long windows
     $ xs
 
 getInpt = do
     src <- readFile "../data/prob_0008.txt"
-    let digits = concat $ map (map digitToInt) (lines src)
+    let digits = concatMap (map digitToInt) (lines src)
     return digits
 
 solveProb = do

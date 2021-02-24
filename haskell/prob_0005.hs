@@ -10,7 +10,7 @@
 -}
 
 
-listLCM xs = foldl lcm 1 xs
+listLCM = foldl lcm 1
 
 solveProb = listLCM [1..20]
   
