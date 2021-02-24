@@ -1,4 +1,4 @@
-from math import sqrt
+from math import ceil, sqrt
 from operator import mul
 from bisect import bisect_right
 from functools import reduce
@@ -72,7 +72,7 @@ class PrimeTools:
                     return False
             return True
 
-    def factorize(self, m):
+    def factorize(self, m):        
         m = abs(m)
         prime_divisor_list = []
 
@@ -82,7 +82,7 @@ class PrimeTools:
 
         # needed in case n happens to be prime itself
         if self.__must_extend__(m):
-            self.extend(m+1)
+            self.extend(ceil(sqrt(m))+1)
 
         k = m
         for p in self.prime_list:
@@ -94,6 +94,11 @@ class PrimeTools:
                 p_exp += 1
             if p_exp:
                 prime_divisor_list.append((p, p_exp))
+
+        if not prime_divisor_list:
+            # m must have been prime, since we did trial division
+            # for all primes up to sqrt(m) + 1
+            prime_divisor_list = [(m, 1)]
 
         return prime_divisor_list
 
