@@ -8,11 +8,13 @@
 -}
 
 
-solveProb =  
-  let n = 100
-      sumOfSquares = sum $ map (^ 2) [1..n]
-      squareOfSum = sum [1..n] ^ 2
-  in squareOfSum - sumOfSquares
+solveProb :: Integer
+solveProb = squareOfSum - sumOfSquares
+   where 
+     n = 100
+     sumOfSquares = sum $ map (^ 2) [1..n]
+     squareOfSum = sum [1..n] ^ 2
 
+main :: IO ()
 main = do
     putStrLn $ "Solution to Prob 6: " ++ show solveProb

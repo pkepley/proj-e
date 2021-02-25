@@ -10,9 +10,12 @@
 -}
 
 
+listLCM :: [Integer] -> Integer
 listLCM = foldl lcm 1
 
+solveProb :: Integer
 solveProb = listLCM [1..20]
-  
+
+main :: IO ()
 main = do
     putStrLn $ "Solution to Prob 5: " ++ show solveProb

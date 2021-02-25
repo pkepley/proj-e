@@ -8,9 +8,12 @@
 -- https://hackage.haskell.org/package/primes
 import Data.Numbers.Primes (primes)
 
+solveProb :: Integer
 solveProb =
-  let maxN = 2 * 10^6
-  in sum $ takeWhile (< maxN) primes
+    sum $ takeWhile (< maxN) primes
+  where
+    maxN = 2 * 10^6
 
+main :: IO ()
 main = do
-  putStrLn $ "Solution to Prob 11: " ++ show solveProb
+    putStrLn $ "Solution to Prob 11: " ++ show solveProb

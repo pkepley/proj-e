@@ -10,8 +10,9 @@
 import Data.Numbers.Primes (primes)
 
 -- zero based indexing, subtract 1!
+solveProb :: Integer
 solveProb = primes !! (10001 - 1)
 
+main :: IO ()
 main = do
-  putStrLn $ "Solution to Prob 7: " ++ show solveProb
-
+    putStrLn $ "Solution to Prob 7: " ++ show solveProb

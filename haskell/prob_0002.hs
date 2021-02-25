@@ -9,11 +9,15 @@
 -}
 
 -- https://wiki.haskell.org/The_Fibonacci_sequence
+fibs :: [Integer]
 fibs = scanl (+) 0 (1:fibs)
 
+solveProb :: Integer
 solveProb =
-  let maxFib = 4 * 10^6
-  in sum [n | n <- takeWhile (< maxFib) fibs, even n]
+    sum [n | n <- takeWhile (< maxFib) fibs, even n] 
+  where
+    maxFib = 4 * 10^6
 
+main :: IO ()
 main = do
-  putStrLn $ "Solution to Prob 2: " ++ show solveProb
+    putStrLn $ "Solution to Prob 2: " ++ show solveProb
