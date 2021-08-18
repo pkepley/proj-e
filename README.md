@@ -7,7 +7,7 @@ re-learning C).
 
 I wrote most of my Python solutions back in 2014-2015 when I was just
 beginning to learn Python. At the time, I didn't know git, was
-unwaware of the existence of linteres, and was only barely able to
+unwaware of the existence of linters, and was only barely able to
 make things run in Python 2. So I have recently been (slowly) updating
 my solutions to run in Python3 and trying to clean them up / document
 them better. Maybe I'll even add unit tests at some point. I dunno! 🙂
