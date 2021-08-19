@@ -2,6 +2,7 @@
 #include <vector>
 #include <tuple>
 #include <math.h>
+#include <algorithm>
 
 
 std::vector<int64_t> prime_sieve(int64_t n) {
@@ -35,6 +36,11 @@ std::vector<int64_t> prime_sieve(int64_t n) {
   }
 
   return primes;
+}
+
+
+bool is_prime(int64_t n, std::vector<int64_t> &primes) {
+  return std::binary_search(primes.begin(), primes.end(), n);
 }
 
 

@@ -1,12 +1,7 @@
 #include "prime_tools.hpp"
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cmath>
-
-bool is_prime(int64_t n, std::vector<int64_t> &primes) {
-  return std::binary_search(primes.begin(), primes.end(), n);
-}
 
 bool is_circular_prime(int64_t p, std::vector<int64_t> &primes)
 {

@@ -11,4 +11,6 @@ public:
 
 std::vector<int64_t> prime_sieve(int64_t n);
 
+bool is_prime(int64_t n, std::vector<int64_t> &primes);
+
 std::vector<PrimeFactor> factorize(int64_t n, std::vector<int64_t> primes);
