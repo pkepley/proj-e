@@ -3,7 +3,8 @@
 #include <vector>
 #include <cmath>
 
-bool is_circular_prime(int64_t p, std::vector<int64_t> &primes)
+
+bool is_circular_prime(int64_t p, PrimeTools &pt)
 {
   std::vector<int64_t> reversed_digits;
   int64_t m = p;
@@ -27,32 +28,35 @@ bool is_circular_prime(int64_t p, std::vector<int64_t> &primes)
     }
 
     // early exit if current permutation is not prime
-    if (!is_prime(m, primes)) return false;
+    if (!pt.is_prime(m)) return false;
   }
 
   // if we got here, all permutations were prime
   return true;
 }
 
-unsigned long long sum_circular_primes(int64_t n)
-{
-  unsigned long long circular_prime_sum = 0;
-  std::vector<int64_t> primes = prime_sieve(n);
 
-  for (int i = 0; i < primes.size(); i++) {
-    if (is_circular_prime(primes[i],  primes))
-      circular_prime_sum += (unsigned long long) primes[i];
+int64_t count_circular_primes(int64_t n)
+{
+  unsigned long long n_circular_primes = 0;
+  PrimeTools pt = PrimeTools(n);
+
+  for (int i = 0; i < pt.primes.size(); i++) {
+    if (is_circular_prime(pt.primes[i], pt))
+      n_circular_primes++;
   }
 
-  return circular_prime_sum;
+  return n_circular_primes;
 }
+
 
 int64_t solve_prob_0035() {
-  return sum_circular_primes(1000000);
+  return count_circular_primes(1000000);
 }
 
-int main() {
 
+int main() {
   std::cout << "Solution to Problem 35: " << solve_prob_0035() << "\n";
+
   return 0;
 }

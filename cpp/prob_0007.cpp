@@ -5,25 +5,24 @@
 #include <ostream>
 #include <vector>
 
-std::vector<int64_t> get_n_primes(int64_t n)
+PrimeTools get_n_primes(int64_t n)
 {
-  int64_t m = 4096;
-  std::vector<int64_t> primes = prime_sieve(m);
+  int64_t m = 32;
+  PrimeTools pt = PrimeTools(m);
 
-  while (primes.size() < n)
-    {
-      m = 2 * m;
-      primes = prime_sieve(m);
-    }
+  while (pt.primes.size() < n) {
+    m = 2 * m;
+    pt.sieve(m);
+  }
 
-  return primes;
+  return pt;
 }
 
 int64_t solve_prob_0007()
 {
-  std::vector<int64_t> primes = get_n_primes(10001);
+  PrimeTools pt = get_n_primes(10001);
 
-  return primes[10001 - 1];
+  return pt.primes[10001 - 1];
 }
 
 
