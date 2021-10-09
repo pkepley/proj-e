@@ -9,8 +9,8 @@ int64_t solve_prob_0003()
 {
   int64_t n = 600851475143;
   int64_t n_sqrt = (int64_t)sqrt(600851475143);
-  std::vector<int64_t> primes = prime_sieve(n_sqrt);
-  std::vector<PrimeFactor> prime_factors = factorize(n, primes);
+  PrimeTools pt = PrimeTools(100000);
+  std::vector<PrimeFactor> prime_factors = pt.factorize(n);
 
   return prime_factors[prime_factors.size() - 1].divisor;
 }
