@@ -76,8 +76,8 @@ void PrimeTools::post_sieve_update(int64_t sieved_to_n)
 
 bool PrimeTools::is_prime(int64_t n)
 {
-  bool is_prime;
-  int i;
+  //bool is_prime;
+  //int i;
 
   // resize prime sieve n is too big.
   // resize factor is 10x to avoid frequent resieves
@@ -87,7 +87,7 @@ bool PrimeTools::is_prime(int64_t n)
 
   // n is big, so check primes up to sqrt(n) for divisors
   if (n > primes.back()) {
-    for(i = 0; (i < primes.size()) && (primes[i] < (int64_t) sqrt(n) + 1); i++){
+    for(int i = 0; (i < primes.size()) && (primes[i] < (int64_t) sqrt(n) + 1); i++){
       if ((n % primes[i]) == 0){
         return false;
       }
@@ -127,4 +127,21 @@ std::vector<PrimeFactor> PrimeTools::factorize(int64_t n) {
   }
 
   return factorization;
+}
+
+
+int64_t PrimeTools::totient(int64_t n) {
+  std::vector<PrimeFactor> factorization = factorize(n);
+  int64_t phi;
+  int64_t p;
+
+  // compute totieng (phi) using the product formula:
+  //   phi(n) = n * \prod_{p|n} (p - 1)/p
+  phi = n;
+  for (int64_t i = 0; i < factorization.size(); i++) {
+    p = factorization[i].divisor;
+    phi = phi * (p - 1) / p;
+  }
+
+  return phi;
 }

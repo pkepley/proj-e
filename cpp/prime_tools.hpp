@@ -23,6 +23,7 @@ public:
   void sieve(int64_t n);
   bool is_prime(int64_t n);
   std::vector<PrimeFactor> factorize(int64_t n);
+  int64_t totient(int64_t n);
 
 private:
   int64_t primes_known_below = 0;
